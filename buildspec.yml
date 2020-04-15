@@ -3,7 +3,7 @@ version: 0.2
 
 env:
   variables:
-     AQUA_URL: "http://ad8e4e3e57f2e11ea8130029a61ca2bf-1298012884.us-east-1.elb.amazonaws.com/"
+     AQUA_URL: "http://ad8e4e3e57f2e11ea8130029a61ca2bf-1298012884.us-east-1.elb.amazonaws.com:8080/"
      AQUA_USER: "administrator"
   parameter-store:
       AQUA_PASSWORD: "/CodeBuild/aquaconsole-password"
