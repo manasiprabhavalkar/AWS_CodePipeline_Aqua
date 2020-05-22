@@ -1,13 +1,6 @@
 ---
 version: 0.2
 
-env:
-  variables:
-     AQUA_URL: "http://ad8e4e3e57f2e11ea8130029a61ca2bf-1298012884.us-east-1.elb.amazonaws.com:8080/"
-     AQUA_USER: "administrator"
-  parameter-store:
-      AQUA_PASSWORD: "/CodeBuild/aquaconsole-password"
-      
 phases:
   install:
     commands:
@@ -27,8 +20,8 @@ phases:
   build:
     commands:
       - docker build --tag $REPOSITORY_URI:$TAG .
-      - curl -u $AQUA_USER:$AQUA_PASSWORD -X POST $AQUA_URL/api/v1/scanner/registry/local/image/$REPOSITORY_URI:$TAG/scan
-#      - ./scannercli scan --host $AQUA_URL --user $AQUA_USER --password $AQUA_PASSWORD --local $REPOSITORY_URI:$TAG --no-verify --htmlfile out.html
+#      - curl -u $AQUA_USER:$AQUA_PASSWORD -X POST $AQUA_URL/api/v1/scanner/registry/local/image/$REPOSITORY_URI:$TAG/scan
+      - ./scannercli scan --host $AQUA_URL --user $AQUA_USER --password $AQUA_PASSWORD --local $REPOSITORY_URI:$TAG --no-verify --htmlfile out.html
 #      - docker push "$IMAGE_URI"
       - docker push $REPOSITORY_URI:$TAG
   post_build:
