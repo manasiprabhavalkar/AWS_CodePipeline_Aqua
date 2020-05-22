@@ -20,7 +20,7 @@
                 <h3>Congratulations</h3>
                 <br />
                 <br />
-                <p>Your PHP application is now running on a container in Amazon ECS.</p>
+                <p>Your PHP application is now running on a container in Amazon EKS.</p>
                 <p>The container is running PHP version <?php echo phpversion(); ?>.</p>
                 <?php
                         $myfile = fopen("/var/www/my-vol/date", "r") or die("");
